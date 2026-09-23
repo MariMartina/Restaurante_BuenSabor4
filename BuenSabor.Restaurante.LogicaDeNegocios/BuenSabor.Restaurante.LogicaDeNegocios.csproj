@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CargoBL.cs" />
+    <Compile Remove="ClienteBL.cs" />
+    <Compile Remove="ClienteTipoBL.cs" />
+    <Compile Remove="DepartamentoBL.cs" />
+    <Compile Remove="DistritoBL.cs" />
+    <Compile Remove="EmpleadoBL.cs" />
+    <Compile Remove="EmpleadoTurnoBL.cs" />
+    <Compile Remove="EstadoBL.cs" />
+    <Compile Remove="EstadoCargoBL.cs" />
+    <Compile Remove="EstadoPagoBL.cs" />
+    <Compile Remove="EstadoPedidoBL.cs" />
+    <Compile Remove="MenuBL.cs" />
+    <Compile Remove="MesasBL.cs" />
+    <Compile Remove="MetodPagoBL.cs" />
+    <Compile Remove="MunicipioBL.cs" />
+    <Compile Remove="PagoBL.cs" />
+    <Compile Remove="PedidoBL.cs" />
+    <Compile Remove="ReservacionBL.cs" />
+    <Compile Remove="ReservaClienteBL.cs" />
+    <Compile Remove="TipoClienteBL.cs" />
+    <Compile Remove="TurnoBL.cs" />
+    <Compile Remove="UbicacionMesaBL.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BuenSabor.Restaurante.AccesoADatos\BuenSabor.Restaurante.AccesoADatos.csproj" />
+    <ProjectReference Include="..\BuenSabor.Restaurante.EntidadesDeNegocios\BuenSabor.Restaurante.EntidadesDeNegocios.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,40 @@
+﻿@model BuenSabor.Restaurante.EntidadesDeNegocio.Usuario
+@{
+    ViewData["Title"] = "Registrar usuario";
+}
+<h1>Registrar usuario</h1>
+
+<form asp-controller="Usuario" asp-action="Registro" method="post">
+    <div asp-validation-summary="All" role="alert"></div>
+
+    <label asp-for="Nombre">Nombre</label>
+    <input asp-for="Nombre" required maxlength="100" />
+    <span asp-validation-for="Nombre"></span>
+
+    <label asp-for="Correo">Correo electrónico</label>
+    <input asp-for="Correo" type="email" autocomplete="username" />
+    <span asp-validation-for="Correo"></span>
+
+    <label asp-for="Clave">Contraseña</label>
+    <input asp-for="Clave" type="password" autocomplete="new-password" />
+    <small>Utilice al menos 12 caracteres y un máximo de 72 bytes UTF-8.</small>
+    <span asp-validation-for="Clave"></span>
+
+    <label for="confirmarClave">Confirmar contraseña</label>
+    <input id="confirmarClave" name="confirmarClave" type="password" autocomplete="new-password" required />
+
+    @if (ViewBag.Primero == true)
+    {
+        <p>Esta primera cuenta tendrá el rol Administrador.</p>
+    }
+
+    <button type="submit">Guardar usuario</button>
+</form>
+
+<p><a asp-action="Login">Volver al inicio</a></p>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

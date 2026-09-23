@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font: 17px Arial,sans-serif;
+    color: #173346;
+    background: #eef3f6;
+}
+
+header {
+    background: #075479;
+    color: white;
+    padding: 24px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    padding: 16px;
+    align-items: center;
+}
+
+main {
+    max-width: 620px;
+    margin: 24px auto;
+    padding: 32px;
+    background: white;
+    border-radius: 12px;
+}
+
+label, input, select {
+    display: block;
+    margin: 12px 0;
+}
+
+input, select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+}
+
+button {
+    background: #075479;
+    color: white;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+a {
+    color: #075479;
+}
+
+.validation-summary-errors {
+    color: #a12020;
+}
+
+small {
+    display: block;
+    margin-bottom: 16px;
+}
+
+.field-validation-error {
+    color: #a12020;
+}
+
+.mensaje {
+    color: #075479;
+}

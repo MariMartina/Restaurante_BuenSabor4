@@ -1,0 +1,21 @@
+﻿using BuenSabor.Restaurante.EntidadesDeNegocio;
+using BuenSabor.Restaurante.EntidadesDeNegocios;
+using System;
+using System.Collections.Generic;
+namespace BuenSabor.Restaurante.AccesoADatos
+{
+    public class UsuarioDAL
+    {
+        public static int Crear(Usuario p) { var c = ComunDB.ObtenerComando(); c.CommandText = "INSERT INTO Usuario(Nombre, Correo, Clave, IdRol, Estado) VALUES(@Nombre,@Correo,@Clave,@IdRol,1); SELECT SCOPE_IDENTITY()"; c.Parameters.AddWithValue("@Nombre", p.Nombre); c.Parameters.AddWithValue("@Correo", p.Correo); c.Parameters.AddWithValue("@Clave", p.Clave); c.Parameters.AddWithValue("@IdRol", p.IdRol); int id = Convert.ToInt32(c.ExecuteScalar()); c.Connection.Close(); return id; }
+        public static int Modificar(Usuario p) { var c = ComunDB.ObtenerComando(); c.CommandText = "UPDATE Usuario SET Nombre=@Nombre, Correo=@Correo, IdRol=@IdRol WHERE IdUsuario=@Id"; c.Parameters.AddWithValue("@Nombre", p.Nombre); c.Parameters.AddWithValue("@Correo", p.Correo); c.Parameters.AddWithValue("@IdRol", p.IdRol); c.Parameters.AddWithValue("@Id", p.IdUsuario); int r = c.ExecuteNonQuery(); c.Connection.Close(); return r; }
+        public static int Guardar(Usuario p) { if (p.IdUsuario == 0) return Crear(p); else return Modificar(p); }
+        public static bool HayUsuarios() { var c = ComunDB.ObtenerComando(); c.CommandText = "SELECT COUNT(*) FROM Usuario WHERE Estado=1"; int n = Convert.ToInt32(c.ExecuteScalar()); c.Connection.Close(); return n > 0; }
+        public static int Eliminar(int id) { var c = ComunDB.ObtenerComando(); c.CommandText = "UPDATE Usuario SET Estado=0 WHERE IdUsuario=@Id"; c.Parameters.AddWithValue("@Id", id); int r = c.ExecuteNonQuery(); c.Connection.Close(); return r; }
+        public static int Eliminar(Usuario p) { return Eliminar(p.IdUsuario); }
+        public static List<Usuario> ObtenerTodos() { var l = new List<Usuario>(); var c = ComunDB.ObtenerComando(); c.CommandText = "SELECT IdUsuario, Nombre, Correo, Clave, IdRol, Estado FROM Usuario WHERE Estado=1"; var rd = c.ExecuteReader(); while (rd.Read()) { l.Add(new Usuario { IdUsuario = Convert.ToInt32(rd["IdUsuario"]), Nombre = rd["Nombre"].ToString(), Correo = rd["Correo"].ToString(), Clave = rd["Clave"].ToString(), IdRol = Convert.ToInt32(rd["IdRol"]), Estado = Convert.ToBoolean(rd["Estado"]) }); } c.Connection.Close(); return l; }
+        public static List<Usuario> Buscar(Usuario p) { var l = new List<Usuario>(); var c = ComunDB.ObtenerComando(); c.CommandText = "SELECT IdUsuario, Nombre, Correo, Clave, IdRol, Estado FROM Usuario WHERE Nombre LIKE @Nombre AND Estado=1"; c.Parameters.AddWithValue("@Nombre", "%" + p.Nombre + "%"); var rd = c.ExecuteReader(); while (rd.Read()) { l.Add(new Usuario { IdUsuario = Convert.ToInt32(rd["IdUsuario"]), Nombre = rd["Nombre"].ToString(), Correo = rd["Correo"].ToString(), Clave = rd["Clave"].ToString(), IdRol = Convert.ToInt32(rd["IdRol"]), Estado = Convert.ToBoolean(rd["Estado"]) }); } c.Connection.Close(); return l; }
+        public static Usuario ObtenerPorId(int id) { var c = ComunDB.ObtenerComando(); c.CommandText = "SELECT IdUsuario, Nombre, Correo, Clave, IdRol, Estado FROM Usuario WHERE IdUsuario=@Id"; c.Parameters.AddWithValue("@Id", id); var rd = c.ExecuteReader(); Usuario u = null; if (rd.Read()) { u = new Usuario { IdUsuario = Convert.ToInt32(rd["IdUsuario"]), Nombre = rd["Nombre"].ToString(), Correo = rd["Correo"].ToString(), Clave = rd["Clave"].ToString(), IdRol = Convert.ToInt32(rd["IdRol"]), Estado = Convert.ToBoolean(rd["Estado"]) }; } c.Connection.Close(); return u; }
+        public static Usuario ObtenerPorCorreo(string correo) { var c = ComunDB.ObtenerComando(); c.CommandText = "SELECT IdUsuario, Nombre, Correo, Clave, IdRol, Estado FROM Usuario WHERE Correo=@Correo AND Estado=1"; c.Parameters.AddWithValue("@Correo", correo); var rd = c.ExecuteReader(); Usuario u = null; if (rd.Read()) { u = new Usuario { IdUsuario = Convert.ToInt32(rd["IdUsuario"]), Nombre = rd["Nombre"].ToString(), Correo = rd["Correo"].ToString(), Clave = rd["Clave"].ToString(), IdRol = Convert.ToInt32(rd["IdRol"]), Estado = Convert.ToBoolean(rd["Estado"]) }; } c.Connection.Close(); return u; }
+        public static Usuario BuscarPorCorreo(string c) { return ObtenerPorCorreo(c); }
+    }
+}

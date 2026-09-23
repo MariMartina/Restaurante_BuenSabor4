@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Cargo.cs" />
+    <Compile Remove="Categoria.cs" />
+    <Compile Remove="Cliente.cs" />
+    <Compile Remove="ClienteTipo.cs" />
+    <Compile Remove="Departamento.cs" />
+    <Compile Remove="Distrito.cs" />
+    <Compile Remove="Empleado.cs" />
+    <Compile Remove="EmpleadoTurno.cs" />
+    <Compile Remove="Estado.cs" />
+    <Compile Remove="Estadocargo.cs" />
+    <Compile Remove="EstadoPago.cs" />
+    <Compile Remove="EstadoPedido.cs" />
+    <Compile Remove="Menu.cs" />
+    <Compile Remove="Mesa.cs" />
+    <Compile Remove="MetodoPago.cs" />
+    <Compile Remove="Municipio.cs" />
+    <Compile Remove="Pagos.cs" />
+    <Compile Remove="Pedido.cs" />
+    <Compile Remove="platos.cs" />
+    <Compile Remove="Reservacion.cs" />
+    <Compile Remove="ReservaCliente.cs" />
+    <Compile Remove="TipoCliente.cs" />
+    <Compile Remove="Turno.cs" />
+    <Compile Remove="UbicacionMesa.cs" />
+  </ItemGroup>
+
+</Project>

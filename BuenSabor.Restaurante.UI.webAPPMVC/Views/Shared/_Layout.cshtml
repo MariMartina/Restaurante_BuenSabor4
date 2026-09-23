@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Buen Sabor</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>Buen Sabor | Restaurante</header>
+    <nav>
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <a asp-controller="Inicio" asp-action="Index">Inicio</a>
+            <a asp-controller="Inicio" asp-action="Administracion">Administración</a>
+            <a asp-controller="Usuario" asp-action="Registro">Registrar usuario</a>
+
+            <form asp-controller="Usuario" asp-action="CerrarSesion" method="post" style="display:inline">
+                <button type="submit">Cerrar sesión</button>
+            </form>
+        }
+        else
+        {
+            <a asp-controller="Usuario" asp-action="Login">Iniciar sesión</a>
+        }
+    </nav>
+    <main>@RenderBody()</main>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

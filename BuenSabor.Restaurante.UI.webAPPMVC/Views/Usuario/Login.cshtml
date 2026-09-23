@@ -1,0 +1,25 @@
+﻿@model BuenSabor.Restaurante.EntidadesDeNegocio.Usuario
+@{
+    ViewData["Title"] = "Inicio de sesión";
+}
+<h1>Inicio de sesión</h1>
+<p class="mensaje">@TempData["Mensaje"]</p>
+
+<form asp-controller="Usuario" asp-action="Login" method="post">
+    <div asp-validation-summary="All" role="alert"></div>
+
+    <label asp-for="Correo">Correo electrónico</label>
+    <input asp-for="Correo" type="email" autocomplete="username" />
+    <span asp-validation-for="Correo"></span>
+
+    <label asp-for="Clave">Contraseña</label>
+    <input asp-for="Clave" type="password" autocomplete="current-password" />
+    <span asp-validation-for="Clave"></span>
+
+    <button type="submit">Iniciar sesión</button>
+</form>
+
+@if (ViewBag.Primero == true)
+{
+    <p><a asp-action="Registro">Crear primer administrador</a></p>
+}
