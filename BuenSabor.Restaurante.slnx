@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="BuenSabor.Restaurante.AccesoADatos/BuenSabor.Restaurante.AccesoADatos.csproj" />
+  <Project Path="BuenSabor.Restaurante.Documento/BuenSabor.Restaurante.Documento.csproj" Id="4dff9a7b-c0a7-4d5a-aa3b-5e1be64c8635" />
   <Project Path="BuenSabor.Restaurante.EntidadesDeNegocios/BuenSabor.Restaurante.EntidadesDeNegocios.csproj" />
   <Project Path="BuenSabor.Restaurante.LogicaDeNegocios/BuenSabor.Restaurante.LogicaDeNegocios.csproj" />
   <Project Path="BuenSabor.Restaurante.UI.webAPPMVC/BuenSabor.Restaurante.UI.webAPPMVC.csproj" Id="757db0ce-9d93-497e-95dc-49174a9ebfb5" />

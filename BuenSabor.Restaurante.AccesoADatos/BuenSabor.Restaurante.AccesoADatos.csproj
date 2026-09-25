@@ -15,7 +15,6 @@
     <Compile Remove="EmpleadoDAL.cs" />
     <Compile Remove="EmpleadoTurnoDAL.cs" />
     <Compile Remove="EstadoCargoDAL.cs" />
-    <Compile Remove="EstadoDAL.cs" />
     <Compile Remove="EstadoPagoDAL.cs" />
     <Compile Remove="EstadoPedidoDAL.cs" />
     <Compile Remove="MenuDAL.cs" />

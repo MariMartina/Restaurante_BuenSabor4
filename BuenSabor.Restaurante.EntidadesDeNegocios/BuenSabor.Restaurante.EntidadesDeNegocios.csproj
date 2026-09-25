@@ -15,7 +15,6 @@
     <Compile Remove="Distrito.cs" />
     <Compile Remove="Empleado.cs" />
     <Compile Remove="EmpleadoTurno.cs" />
-    <Compile Remove="Estado.cs" />
     <Compile Remove="Estadocargo.cs" />
     <Compile Remove="EstadoPago.cs" />
     <Compile Remove="EstadoPedido.cs" />
